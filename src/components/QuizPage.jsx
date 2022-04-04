@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
@@ -6,6 +6,7 @@ import List from '@material-ui/core/List';
 import ListItem  from '@material-ui/core/ListItem';
  import ListItemIcon from '@material-ui/core/ListItemIcon';
  import FavoriteIcon from '@material-ui/icons/Favorite';
+ import {getQuestions} from "../services/quastionService"
 
 //import Div from '@material-ui/core/Div';
 
@@ -13,11 +14,25 @@ import ListItem  from '@material-ui/core/ListItem';
 
 const QuizPage = (prop) => {
 
+const [questions,setQuestions] = useState([]);
+const [quastions,setQuastions] = useState({});
 const [quastion,setQuastion] = useState('The quastion is ..........');
 const [answer1,setAns1] = useState('Answer number 1');
 const [answer2,setAns2] = useState('Answer number 2');
 const [answer3,setAns3] = useState('Answer number 3');
 const [answer4,setAns4] = useState('Answer number 4');
+
+
+
+useEffect(async() => {
+  const res = await getQuestions();
+  setQuestions(res)
+console.log(questions)
+  });
+
+function updateQuastions(quastions){
+setQuastions(quastions);
+}
 
 function updateQuastion(newQuastion){ 
 setQuastion(newQuastion);
