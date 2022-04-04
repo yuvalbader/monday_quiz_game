@@ -1,9 +1,17 @@
-import React, { Component } from "react"
-import logo from "./logo.svg"
+import React, { Component, useState } from "react"
 import "./App.css"
 import LandingPage from '../src/components/LandingPage'
 import QuizPage from "./components/QuizPage"
-import QuastionsList from "../src/services/quastionService"
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+import GameOverPage from "./components/GameOverPage";
+import { UserProvider } from "./context/userContext";
+import AppContainer from "./components/AppContainer";
+
+
 
 class LambdaDemo extends Component {
   constructor(props) {
@@ -34,13 +42,11 @@ class LambdaDemo extends Component {
   }
 }
 
+
+
 class App extends Component {
   render() {
-    return (
-      <div><QuizPage/></div>
-    
-    )
-  }
+return <AppContainer></AppContainer>}
 }
 
 export default App
