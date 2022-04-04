@@ -6,7 +6,7 @@ import List from '@material-ui/core/List';
 import ListItem  from '@material-ui/core/ListItem';
  import ListItemIcon from '@material-ui/core/ListItemIcon';
  import FavoriteIcon from '@material-ui/icons/Favorite';
- import {getQuestions} from "../services/quastionService"
+ import {getQuestionImage, getQuestions} from "../services/questionService"
 import PropTypes from 'prop-types';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Typography from '@material-ui/core/Typography';
@@ -18,9 +18,20 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 
-//import Div from '@material-ui/core/Div';
 
+
+const UrgeWithPleasureComponent = () => (
+  <CountdownCircleTimer
+    isPlaying
+    duration={7}
+    colors={['#004777', '#F7B801', '#A30000', '#A30000']}
+    colorsTime={[7, 5, 2, 0]}
+  >
+    {({ remainingTime }) => remainingTime}
+  </CountdownCircleTimer>
+)
 
 const QuizPage = (prop) => {
 
@@ -33,19 +44,24 @@ const [score,setScore] = useState(0);
 const [isLoading,setIsLoading] = useState(false);
 const [time,setTime] = useState(0);
 const [isGameOver,setIsGameOver] = useState(false);
+const [quastionImgURL,setquastionImgURL] = useState('');
+
+
 
 useEffect(() => {
-    const setQuestion = async () => {
+        const setQuestion = async () => {
         await setFormattedQuestion();
     }
     setQuestion()
         .catch(console.error);
-        console.log(user)
+
 }, [])
 
 
-const setFormattedQuestion = async() => {
+const setFormattedQuestion = async () => {
     const [singleQuestion] = await getQuestions();
+    // setquastionImgURL(await getQuestionImage())
+    console.log(quastionImgURL)
     const formattedSingleQuestion = [...singleQuestion.incorrect_answers,singleQuestion.correct_answer]
     const shuffledQuestion = formattedSingleQuestion
         .map(value => ({ value, sort: Math.random() }))
@@ -57,23 +73,31 @@ const setFormattedQuestion = async() => {
     console.log(singleQuestion.correct_answer)
 }
 
-const checkAnswer = async (answer) => {
-    setIsLoading(true)
-    const results = answer === correctAnswer;
-    results ? setLives(lives) : setLives(lives-1)
-    results ? setScore(score+1): setScore(score)
-
+const wrongAnswerOrTimeIsUpHandler = async ()=>{
+setLives(lives-1)
 
     if(lives === 1)
     { setIsGameOver(true)
         return;
         }
-
     await setFormattedQuestion();
-    setIsLoading(false)
+}
+
+const correctAnswerHandler = async ()=>{
+setScore(score +1)
+    await setFormattedQuestion();
 }
 
 
+const setNextQuestion = async ()=>{
+}
+
+const checkAnswer = async (answer) => {
+    setIsLoading(true)
+    const result = answer === correctAnswer;
+    result ? correctAnswerHandler():wrongAnswerOrTimeIsUpHandler() 
+    setIsLoading(false)
+}
     return (
         <div>
             {!isGameOver && <div> <Box className="Quastion Box" display="flex" 
@@ -87,7 +111,7 @@ const checkAnswer = async (answer) => {
         bgcolor="lightblue"
         justifyContent="center">
 
-
+<image src = {quastionImgURL}> </image>
 <List  component="nav" aria-label="mailbox folders">
     {
         answers.map((answer,index)=>{
@@ -98,9 +122,22 @@ const checkAnswer = async (answer) => {
         </Box>
             <h2>lives:{lives}</h2>
             <h2>score:{score}</h2>
-            <CircularStatic/>
         <Button variant="contained" color="primary" onClick={() => { alert("50/50 clicked") }}>50/50</Button>
         <Button variant="contained" color="primary" onClick={() => { alert("Next Quastion clicked") }}>Next quastion</Button>
+
+         <CountdownCircleTimer
+    isPlaying
+    duration={4}
+    isLinearGradient
+    colors={['#004777', '#F7B801', '#A30000', '#A30000']}
+    colorsTime={[4]}
+    onComplete={() => {
+    wrongAnswerOrTimeIsUpHandler()
+      return { shouldRepeat: !isLoading, delay: 1 } 
+    }}
+  >
+    {({ remainingTime }) => "you can do it in "+ remainingTime +" sec"}
+  </CountdownCircleTimer>
 
       </div> 
       }
