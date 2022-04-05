@@ -7,8 +7,12 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.60",
     "axios": "^0.24.0",
+    "google-search-results-nodejs": "^2.1.0",
     "react": "^16.8.6",
+    "react-countdown-circle-timer": "^3.0.9",
     "react-dom": "^16.8.6",
+    "react-image": "^4.0.3",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "^3.0.1"
   },
   "scripts": {
