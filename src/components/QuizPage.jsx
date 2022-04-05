@@ -16,7 +16,7 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import {Img} from 'react-image'
 import { getQuestionImage } from "../services/questionImageService";
 import Timer from "../components/Timer"
-
+import google_search from "../services/questionImageService";
 
 
 const QuizPage = (prop) => {
@@ -25,6 +25,7 @@ const user = useContext(UserContext).data
 const [question,setQuestion] = useState([]);
 const [answers,setAnswers] = useState([]);
 const [correctAnswer,setCorrectAnswer] = useState([]);
+const [wrongAnswers,setWrongAnswers] = useState([]);
 const [lives,setLives] = useState(5);
 const [score,setScore] = useState(0);
 const [isLoading,setIsLoading] = useState(false);
@@ -34,7 +35,9 @@ const [quastionImgURL,setquastionImgURL] = useState('');
 const [imgURL,setImgURL] = useState('');
 const [timerDuration,setTimerDuration] = useState(30);
 const [timerKey,setTimerKey] = useState(0);
-
+const [is5050clicked,setIs5050clicked] = useState(false);
+const [is5050Disable,setIs5050Disable] = useState(false);
+const [isNextQuastionDisable,setIsNextQuastionDisable] = useState(false);
 
 
 useEffect(() => {
@@ -45,9 +48,12 @@ useEffect(() => {
         .catch(console.error);
 }, [])
 
-
 const setFormattedQuestion = async () => {
     const [singleQuestion] = await getQuestion();
+    const imgQuestion = await google_search('towel warmer');
+    console.log(imgQuestion);
+
+    console.log(imgQuestion.data.items[0].link);
     const formattedSingleQuestion = [...singleQuestion.incorrect_answers,singleQuestion.correct_answer]
     const shuffledQuestion = formattedSingleQuestion
         .map(value => ({ value, sort: Math.random() }))
@@ -56,14 +62,14 @@ const setFormattedQuestion = async () => {
     setAnswers(shuffledQuestion)
     setQuestion(singleQuestion.question)
     setCorrectAnswer(singleQuestion.correct_answer)
+    setWrongAnswers(singleQuestion.incorrect_answers)
     console.log(singleQuestion.correct_answer)
 }
 
-const setQuastionImg = async ()=>{
-const response = await getQuestionImage();
-// setImgURL(imgURL)
-console.log(response)
-}
+// const setQuastionImg = async ()=>{
+// //const response = await getQuestionImage();
+// console.log(response)    
+// }
 const timesUp = async ()=>{
     setIsLoading(true)
     wrongAnswer();
@@ -83,14 +89,12 @@ const correctAnswerHandler = async ()=>{
     setScore(score +1)
 }
 
-const click5050Handler = ()=> {
-    const answersList = document.getElementById("Answers List")
-    console.log(answersList)
-
-}
-
-
-const setNextQuestion = async ()=>{
+const click5050Handler = ()=> {    
+    const correctAnswerButton = document.getElementById(correctAnswer);
+    //const wrongAnswerButton = document.getElementById(wrongAnswers)
+    
+   // const wrongRandomAnswer = document.getElementById({wrongAnswers})
+console.log("correct========== " + correctAnswerButton)
 }
 
 const checkAnswer = async (answer) => {
@@ -103,7 +107,9 @@ const checkAnswer = async (answer) => {
         wrongAnswer() 
     }
     await setFormattedQuestion();
-    setIsLoading(false)
+    setIs5050clicked(false)
+    
+        setIsLoading(false)
 }
     return (
         <div>
@@ -122,15 +128,15 @@ const checkAnswer = async (answer) => {
 <List  id= "Answers List"component="nav" aria-label="mailbox folders">
     {
         answers.map((answer,index)=>{
-            return <ListItem > <Button className = {answer} disabled={isLoading} key={index} variant="contained" color="primary" onClick={()=>checkAnswer(answer)}>{answer}</Button>  </ListItem >
+            return <ListItem > <Button id = {answer} disabled={isLoading || ((answer === wrongAnswers[0] || answer === wrongAnswers[1])&& is5050clicked) } key={index} variant="contained" color="primary" onClick={()=>checkAnswer(answer)}>{answer}</Button>  </ListItem >
         })
     }
 </List>
         </Box>
             <h2>lives:{lives}</h2>
             <h2>score:{score}</h2>
-        <Button variant="contained" color="primary" onClick={() => { click5050Handler() }}>50/50</Button>
-        <Button variant="contained" color="primary" onClick={() => { alert("Next Quastion clicked") }}>Next quastion</Button>
+        <Button variant="contained" color="primary" disabled={is5050Disable} onClick={() => {setIs5050clicked(true); setIs5050Disable(true) }}>50/50</Button>
+        <Button variant="contained" color="primary" disabled={isNextQuastionDisable} onClick={() => { setIsNextQuastionDisable(true); setFormattedQuestion() }}>Next quastion</Button>
          <Timer key = {timerKey} remainingTime={timerDuration} duration={timerDuration} onComplete={() => {
                                      timesUp()
       return { shouldRepeat: !isLoading, delay: 1 } 
