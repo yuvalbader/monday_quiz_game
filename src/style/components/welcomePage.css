@@ -1,0 +1,50 @@
+.welcome-page{
+    height: 100vh;
+    background-image: url(../../assets/space-bg.jpg);
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-page-title{
+
+}
+
+.user-details{
+    display: flex;
+    flex-direction: column;
+    margin-top: 12vh;
+    margin-bottom: 10vh;
+    gap: 30px;
+    align-items: center;
+    background-color: rgb(142, 167, 159);
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: #0000001a 0 0 10px;
+}
+
+.enter-name-msg{
+}
+
+#filled-basic{
+    background-color: white;
+}
+
+.submit-btn{
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: rgb(75, 50, 185);
+    color: white;
+
+}
+
+.submit-btn:hover{
+    cursor: pointer;
+    background-color: rgba(75, 50, 185, 0.516);
+}
+
+

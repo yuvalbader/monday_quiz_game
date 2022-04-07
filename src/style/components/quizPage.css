@@ -1,0 +1,13 @@
+.quiz-page{
+    height: 100vh;
+}
+
+.page-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.question-img{
+    width: 200px;
+    height: 250px;
+}
