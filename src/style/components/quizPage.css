@@ -1,13 +1,141 @@
-.quiz-page{
-    height: 100vh;
+.quiz-page {
+  height: 100vh;
+  background-image: url(../../assets/space-bg.jpg);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.page-container{
-    display: flex;
-    flex-direction: column;
+.page-container {
+  width: 90%;
+  height: 100%;
+  margin-top: 10%;
+  display: flex;
+  margin-top: 5%;
+  gap: 20px;
 }
 
-.question-img{
-    width: 200px;
-    height: 250px;
+.question-img {
+  width: 200px;
+  height: 250px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.lifeSection {
+  display: flex;
+}
+
+.question {
+  font-size: 24px;
+  background-color: black;
+  border-radius: 4px;
+}
+
+.hearts {
+  display: flex;
+  width: 100px;
+  margin-top: 10%;
+  margin-left: 5%;
+  transform: translateY(6px);
+  color: red;
+  gap: 3px;
+}
+
+.quiz-container {
+  width: 65%;
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 15px;
+  border: 5px solid;
+}
+.endGameButton {
+  margin-top: 30%;
+  display: flex;
+  justify-content: center;
+}
+
+.quiz-details {
+  border: 5px solid;
+  display: flex;
+  height: 90%;
+  flex-direction: column;
+  border-radius: 15px;
+  padding: 0px 20px 0px 20px;
+}
+
+.timer {
+  margin-top: 10%;
+}
+
+.answers {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  list-style: none;
+  gap: 10px;
+  /* padding-left: 27%; */
+  justify-content: center;
+}
+
+.answer {
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+.answers-btn {
+  width: 300px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  background-color: rgb(228 228 228);
+  border: 4px solid white;
+}
+
+.answers-btn:hover {
+  cursor: pointer;
+  background-color: rgb(202, 199, 199);
+}
+/*
+.answers-btn:active {
+  background-color: rgb(160, 86, 86);
+}*/
+
+.toResultsButton {
+  color: white;
+  margin-top: 20px;
+}
+
+.score-title {
+  margin-top: 0;
+}
+
+.help-btn {
+  background-color: rgb(37, 155, 16);
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid black;
+  font-weight: bold;
+  margin-left: 12px;
+}
+
+.help-btn:hover {
+  background-color: rgb(32, 136, 14);
+  cursor: pointer;
+}
+
+.end-game-btn {
+  background-color: rgb(173, 12, 12);
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.end-game-btn:hover {
+  background-color: rgb(148, 9, 9);
+  cursor: pointer;
 }

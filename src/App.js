@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import "../src/style/App.css";
 import AppContainer from "./components/AppContainer";
 
