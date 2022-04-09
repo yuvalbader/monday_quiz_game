@@ -3,16 +3,19 @@ import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 function Timer(props) {
   return (
-    <CountdownCircleTimer
-      isPlaying
-      duration={props.duration}
-      isLinearGradient
-      colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
-      colorsTime={[30, 20, 10, 5]}
-      onComplete={props.onComplete}
-    >
-      {({ remainingTime }) => remainingTime + " sec"}
-    </CountdownCircleTimer>
+    <div class="timer">
+      <CountdownCircleTimer
+        duration={props.duration}
+        isLinearGradient
+        colors={["#34a832", "#F7B801", "#A30000", "#A30000"]}
+        colorsTime={[30, 20, 10, 5]}
+        onComplete={props.onComplete}
+        onUpdate={(remainingTime) => props.onUpdateMethod(remainingTime)}
+        isPlaying={props.Playing}
+      >
+        {({ remainingTime }) => remainingTime + " seconds"}
+      </CountdownCircleTimer>
+    </div>
   );
 }
 

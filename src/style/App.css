@@ -1,8 +1,4 @@
 @import "basic/base.css";
-
-
 @import "components/welcomePage.css";
-@import "components/quizPage.css";
-
-
-
+@import "components/QuizPage.css";
+@import "components/gameOverPage.css"

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LandingPage from "./welcomePage";
+import WelcomePage from "../components/welcomePage";
 import QuizPage from "../components/QuizPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import GameOverPage from "../components/GameOverPage";
@@ -18,7 +18,7 @@ const AppContainer = (prop) => {
           path="*"
           element={
             <UserProvider value={providerOptions}>
-              <LandingPage />
+              <WelcomePage />
             </UserProvider>
           }
         />
@@ -26,7 +26,7 @@ const AppContainer = (prop) => {
           path="/welcome"
           element={
             <UserProvider value={providerOptions}>
-              <LandingPage />
+              <WelcomePage />
             </UserProvider>
           }
         />
