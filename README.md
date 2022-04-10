@@ -8,7 +8,7 @@ try the game: https://yb-monday-quiz-game.netlify.app/
 * At each round, a new question presented.
 *  Each question contains multiple possible answers, only one is correct.
 * Players have only 30 sec to respond to each question.
-* The score of a correct question starts from 100 points and decreases over time - the faster you answer the more questions you will accumulate.
+* The score of a correct question starts from 100 points and decreases over time - the faster you answer the more scores you will accumulate.
 * Players have two help buttons - 50/50 and "skip-question" and it can only be used once in a game.
 
 # additional features:
