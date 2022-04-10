@@ -14,7 +14,7 @@ const GameOverPage = (prop) => {
           <div className="boardSection">
             <LeaderBoardTable users={allUsers}></LeaderBoardTable>
           </div>
-          <div className="boardSection">
+          <div class="board-section">
             <MystatisticsTable user={myUser}> </MystatisticsTable>
           </div>
         </div>

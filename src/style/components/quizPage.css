@@ -75,7 +75,7 @@
 .answers {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  width: 90%;
   list-style: none;
   gap: 10px;
   /* padding-left: 27%; */
@@ -105,7 +105,7 @@
   background-color: rgb(160, 86, 86);
 }*/
 
-.toResultsButton {
+.to-results-btn {
   color: white;
   margin-top: 20px;
 }

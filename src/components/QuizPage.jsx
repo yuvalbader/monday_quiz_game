@@ -178,31 +178,33 @@ const QuizPage = (prop) => {
               <label>{question}</label>
             </Box>
             <img className="question-img" src={imgURL} alt="" />
-            <List className="answers">
-              {answers.map((answer, index) => {
-                return (
-                  <ListItem key={index} className="answer">
-                    <button
-                      className="answers-btn"
-                      background-color={answerBackground}
-                      id={answer}
-                      disabled={
-                        isLoading ||
-                        ((answer === wrongAnswers[0] ||
-                          answer === wrongAnswers[1]) &&
-                          is5050clicked)
-                      }
-                      key={index}
-                      onClick={() => {
-                        checkAnswer(answer);
-                      }}
-                    >
-                      {answer}
-                    </button>
-                  </ListItem>
-                );
-              })}
-            </List>
+              <List className="answers">
+                {answers.map((answer, index) => {
+                  return (
+                    <span>
+                      <ListItem key={index} className="answer">
+                        <button
+                          className="answers-btn"
+                          background-color={answerBackground}
+                          id={answer}
+                          disabled={
+                            isLoading ||
+                            ((answer === wrongAnswers[0] ||
+                              answer === wrongAnswers[1]) &&
+                              is5050clicked)
+                          }
+                          key={index}
+                          onClick={() => {
+                            checkAnswer(answer);
+                          }}
+                        >
+                          {answer}
+                        </button>
+                      </ListItem>
+                    </span>
+                  );
+                })}
+              </List>
           </div>
 
           <div className="quiz-details">
@@ -266,7 +268,7 @@ const QuizPage = (prop) => {
       {isGameOver && (
         <div>
           <h1>Game over</h1>
-          <div className="toResultsButton">
+          <div className="to-results-btn">
             <Link to="/gameOver">
               <h2>To results...</h2>
             </Link>
