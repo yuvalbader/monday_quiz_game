@@ -178,33 +178,33 @@ const QuizPage = (prop) => {
               <label>{question}</label>
             </Box>
             <img className="question-img" src={imgURL} alt="" />
-              <List className="answers">
-                {answers.map((answer, index) => {
-                  return (
-                    <span>
-                      <ListItem key={index} className="answer">
-                        <button
-                          className="answers-btn"
-                          background-color={answerBackground}
-                          id={answer}
-                          disabled={
-                            isLoading ||
-                            ((answer === wrongAnswers[0] ||
-                              answer === wrongAnswers[1]) &&
-                              is5050clicked)
-                          }
-                          key={index}
-                          onClick={() => {
-                            checkAnswer(answer);
-                          }}
-                        >
-                          {answer}
-                        </button>///
-                      </ListItem>
-                    </span>
-                  );
-                })}
-              </List>
+            <List className="answers">
+              {answers.map((answer, index) => {
+                return (
+                  <span>
+                    <ListItem key={index} className="answer">
+                      <button
+                        className="answers-btn"
+                        background-color={answerBackground}
+                        id={answer}
+                        disabled={
+                          isLoading ||
+                          ((answer === wrongAnswers[0] ||
+                            answer === wrongAnswers[1]) &&
+                            is5050clicked)
+                        }
+                        key={index}
+                        onClick={() => {
+                          checkAnswer(answer);
+                        }}
+                      >
+                        {answer}
+                      </button>
+                    </ListItem>
+                  </span>
+                );
+              })}
+            </List>
           </div>
 
           <div className="quiz-details">
