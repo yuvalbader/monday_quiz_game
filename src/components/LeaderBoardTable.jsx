@@ -11,10 +11,10 @@ export default function LeaderBoardTable(props) {
 
   return (
     <div>
-      <Table class="all-time-leaders-table">
+      <Table className="all-time-leaders-table">
         <TableHead>
           <TableRow>
-            <TableCell align="center" colspan="2">
+            <TableCell align="center" colSpan="2">
               All-Time Leaders
             </TableCell>
           </TableRow>
@@ -25,7 +25,7 @@ export default function LeaderBoardTable(props) {
         </TableHead>
         <TableBody>
           {sortedUsers.map((userRow) => (
-            <TableRow>
+            <TableRow key={userRow[0]}>
               <TableCell scope="row">{userRow[0]}</TableCell>
               <TableCell align="right">{userRow[1]}</TableCell>
             </TableRow>

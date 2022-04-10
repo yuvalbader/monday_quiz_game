@@ -53,7 +53,7 @@ const WelcomePage = (prop) => {
           {isUserChooseDifficulty && isUserEnterName && (
             <Link to="/quiz">
               <button
-                class="submit-btn"
+                className="submit-btn"
                 onClick={() => {
                   changeUser({
                     name: userName,
@@ -87,7 +87,7 @@ const WelcomePage = (prop) => {
           )}
         </UserProvider>
       </Box>
-      <Box class="game-rules">
+      <Box className="game-rules">
         <h1 className="rules-title"> Game rules:</h1>
         <List>
           <ListItem># You have 5 lives </ListItem>
