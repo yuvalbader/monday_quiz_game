@@ -41,6 +41,7 @@ const QuizPage = (prop) => {
   };
 
   const changeUser = useContext(UserContext).changeUser;
+
   const [question, setQuestion] = useState("");
   const [answers, setAnswers] = useState([]);
   const [correctAnswer, setCorrectAnswer] = useState([]);
@@ -50,15 +51,14 @@ const QuizPage = (prop) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
   const [imgURL, setImgURL] = useState("");
-  const [timerDuration, setTimerDuration] = useState(30);
+  const [timerDuration] = useState(30);
   const [timeToAnswer, setTimeToAnswer] = useState(0);
   const [timerKey, setTimerKey] = useState(0);
   const [is5050clicked, setIs5050clicked] = useState(false);
   const [is5050Disable, setIs5050Disable] = useState(false);
   const [isNextquestionDisable, setIsNextquestionDisable] = useState(false);
   const [playTimer, setPlayTimer] = useState(false);
-
-  const [answerBackground, setAnswerBackground] = useState("#FFFFF");
+  const [answerBackground] = useState("#FFFFF");
 
   const correctAnswerSound = new Audio(correctAnswerAudio);
   const wrongAnswerSound = new Audio(wrongAnswerAudio);
@@ -151,7 +151,7 @@ const QuizPage = (prop) => {
       heartsArray.push(<span key={i}>❤</span>);
     }
 
-    return <div class="hearts">{heartsArray}</div>;
+    return <div className="hearts">{heartsArray}</div>;
   }, [lives]);
 
   const checkAnswer = async (answer) => {
@@ -172,18 +172,18 @@ const QuizPage = (prop) => {
   return (
     <div className="quiz-page">
       {!isGameOver && (
-        <div class="page-container">
-          <div class="quiz-container">
-            <Box class="question">
+        <div className="page-container">
+          <div className="quiz-container">
+            <Box className="question">
               <label>{question}</label>
             </Box>
-            <img class="question-img" src={imgURL} alt="" />
-            <List class="answers">
+            <img className="question-img" src={imgURL} alt="" />
+            <List className="answers">
               {answers.map((answer, index) => {
                 return (
-                  <ListItem key={index} class="answer">
+                  <ListItem key={index} className="answer">
                     <button
-                      class="answers-btn"
+                      className="answers-btn"
                       background-color={answerBackground}
                       id={answer}
                       disabled={
@@ -205,7 +205,7 @@ const QuizPage = (prop) => {
             </List>
           </div>
 
-          <div class="quiz-details">
+          <div className="quiz-details">
             <Timer
               key={timerKey}
               duration={timerDuration}
@@ -220,14 +220,14 @@ const QuizPage = (prop) => {
               }}
             ></Timer>
 
-            <div class="lifeSection">
-              <h2 class="lives-title">lives:</h2>
+            <div className="lifeSection">
+              <h2 className="lives-title">lives:</h2>
               {hearts()}
             </div>
-            <h2 class="score-title">score: {score}</h2>
-            <div class="help-btns">
+            <h2 className="score-title">score: {score}</h2>
+            <div className="help-btns">
               <button
-                class="help-btn"
+                className="help-btn"
                 disabled={is5050Disable}
                 onClick={() => {
                   setIs5050clicked(true);
@@ -237,7 +237,7 @@ const QuizPage = (prop) => {
                 50/50
               </button>
               <button
-                class="help-btn"
+                className="help-btn"
                 disabled={isNextquestionDisable}
                 onClick={() => {
                   setIsNextquestionDisable(true);
@@ -246,9 +246,9 @@ const QuizPage = (prop) => {
               >
                 Skip
               </button>
-              <div class="endGameButton">
+              <div className="endGameButton">
                 <button
-                  class="end-game-btn"
+                  className="end-game-btn"
                   onClick={() => {
                     changeUser(refUser.current.data);
                     updateCachedUser({ name: refUser.current.name, score });
@@ -266,7 +266,7 @@ const QuizPage = (prop) => {
       {isGameOver && (
         <div>
           <h1>Game over</h1>
-          <div class="toResultsButton">
+          <div className="toResultsButton">
             <Link to="/gameOver">
               <h2>To results...</h2>
             </Link>

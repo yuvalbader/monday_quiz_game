@@ -3,7 +3,7 @@ import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 function Timer(props) {
   return (
-    <div class="timer">
+    <div className="timer">
       <CountdownCircleTimer
         duration={props.duration}
         isLinearGradient

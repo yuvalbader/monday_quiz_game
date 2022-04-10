@@ -10,10 +10,10 @@ export default function MyStatisticsTable(props) {
 
   return (
     <div>
-      <Table class="game-stats-table">
+      <Table className="game-stats-table">
         <TableHead>
           <TableRow>
-            <TableCell align="center" colspan="2">
+            <TableCell align="center" colSpan="2">
               Last game statistics:
             </TableCell>
           </TableRow>

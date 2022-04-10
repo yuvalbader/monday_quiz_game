@@ -8,13 +8,13 @@ const GameOverPage = (prop) => {
   const myUser = useContext(UserContext);
   const allUsers = getAllUsersFromLocalStorage();
   return (
-    <div class="game-over-page">
+    <div className="game-over-page">
       {myUser && allUsers && (
-        <div class="game-over-tables">
-          <div class="boardSection">
+        <div className="game-over-tables">
+          <div className="boardSection">
             <LeaderBoardTable users={allUsers}></LeaderBoardTable>
           </div>
-          <div class="boardSection">
+          <div className="boardSection">
             <MystatisticsTable user={myUser}> </MystatisticsTable>
           </div>
         </div>
