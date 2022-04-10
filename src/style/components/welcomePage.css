@@ -1,0 +1,55 @@
+.welcome-page {
+  height: 150vh;
+  background-image: url(../../assets/space-bg.jpg);
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.MuiInput-root {
+  width: 50%;
+}
+
+.difficultyMenu {
+  width: 50%;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  background-color: rgb(53, 192, 217);
+  padding: 20px 30px;
+  border-radius: 15px;
+  border: 5px solid white;
+  box-shadow: #0000001a 0 0 10px;
+}
+.rules {
+  text-align: center;
+}
+
+#filled-basic {
+  background-color: white;
+}
+
+.submit-btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  background-color: rgb(75, 50, 185);
+  color: white;
+}
+
+.submit-btn:hover {
+  cursor: pointer;
+  background-color: rgba(42, 20, 141, 0.952);
+}
+
+.rules-title {
+  transform: translateX(14px);
+  margin-bottom: 0;
+}

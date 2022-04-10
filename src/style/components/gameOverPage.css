@@ -1,0 +1,59 @@
+.game-over-page {
+  height: 100vh;
+  background-image: url(../../assets/space-bg.jpg);
+  color: white !important;
+}
+
+.score-table-cell {
+  align: right;
+}
+
+.board-section {
+  margin-left: 3%;
+  display: flex;
+  justify-content: center;
+}
+
+.table-container {
+  width: 300px;
+  border: 2px solid;
+  padding: 0px 20px 20px 20px;
+  margin-top: 5px;
+}
+
+.all-time-leaders-table {
+  width: 300px;
+  border: 2px solid;
+  padding: 0px 20px 20px 20px;
+  margin-top: 5px;
+  color: aliceblue;
+}
+
+
+.all-time-leaders-table tr th {
+  color: white;
+  font-weight: 1000;
+}
+.game-stats-table tr th {
+  color: white;
+  font-weight: 1000;
+}
+
+.all-time-leaders-table td {
+  color: white;
+}
+.game-stats-table td {
+  color: white;
+}
+
+.game-stats-table {
+  width: 300px;
+  border: 2px solid;
+  padding: 0px 20px 20px 20px;
+  margin-top: 5px;
+}
+
+.game-over-tables {
+  display: flex;
+  justify-content: center;
+}
