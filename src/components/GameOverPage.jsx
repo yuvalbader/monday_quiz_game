@@ -3,6 +3,7 @@ import UserContext from "../context/userContext";
 import LeaderBoardTable from "../components/LeaderBoardTable";
 import MystatisticsTable from "../components/MyStatisticsTable";
 import { getAllUsersFromLocalStorage } from "../services/localStorageService";
+import { Link } from "react-router-dom";
 
 const GameOverPage = (prop) => {
   const myUser = useContext(UserContext);
@@ -16,7 +17,7 @@ const GameOverPage = (prop) => {
           </div>
           <div className="board-section">
             <MystatisticsTable user={myUser}> </MystatisticsTable>
-          </div>
+          </div>          
         </div>
       )}
     </div>

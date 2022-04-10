@@ -58,7 +58,6 @@ const QuizPage = (prop) => {
   const [is5050Disable, setIs5050Disable] = useState(false);
   const [isNextquestionDisable, setIsNextquestionDisable] = useState(false);
   const [playTimer, setPlayTimer] = useState(false);
-  const [answerBackground] = useState("#FFFFF");
 
   const correctAnswerSound = new Audio(correctAnswerAudio);
   const wrongAnswerSound = new Audio(wrongAnswerAudio);
@@ -185,7 +184,6 @@ const QuizPage = (prop) => {
                     <ListItem key={index} className="answer">
                       <button
                         className="answers-btn"
-                        background-color={answerBackground}
                         id={answer}
                         disabled={
                           isLoading ||
@@ -223,10 +221,10 @@ const QuizPage = (prop) => {
             ></Timer>
 
             <div className="lifeSection">
-              <h2 className="lives-title">lives:</h2>
+              <h2 className="lives-title">Lives:</h2>
               {hearts()}
             </div>
-            <h2 className="score-title">score: {score}</h2>
+            <h2 className="score-title">Score: {score}</h2>
             <div className="help-btns">
               <button
                 className="help-btn"
@@ -267,10 +265,14 @@ const QuizPage = (prop) => {
       )}
       {isGameOver && (
         <div>
-          <h1>Game over</h1>
+          <h1 className="game-over-header">Game over</h1>
           <div className="to-results-btn">
-            <Link to="/gameOver">
-              <h2>To results...</h2>
+            <Link className="btn" to="/gameOver">
+              <h2 className="link-title">To results</h2>
+            </Link>
+
+            <Link className="btn" to="/welcomePage">
+              <h2 className="link-title">Let's do it again</h2>
             </Link>
           </div>
         </div>

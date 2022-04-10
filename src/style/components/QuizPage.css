@@ -95,6 +95,8 @@
   border: 4px solid white;
 }
 
+
+
 .answers-btn:hover {
   cursor: pointer;
   background-color: rgb(202, 199, 199);
@@ -137,4 +139,33 @@
 .end-game-btn:hover {
   background-color: rgb(148, 9, 9);
   cursor: pointer;
+}
+
+.game-over-header {
+  font-size: xxx-large;
+  margin-top: 150px;
+  font-size: 80px;
+  color: white;
+}
+
+.btn {
+  text-decoration: none;
+ 
+  margin-right: 80px;
+}
+
+.link-title{
+ background-color: rgb(53, 192, 217);;
+  border-radius: 30px;
+  padding: 5px 15px;
+  border: 2px solid black;
+  color: white;
+}
+
+.link-title:hover{
+  background: orange;
+}
+
+.to-results-btn{
+  display: flex;
 }

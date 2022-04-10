@@ -13,7 +13,7 @@ function Timer(props) {
         onUpdate={(remainingTime) => props.onUpdateMethod(remainingTime)}
         isPlaying={props.Playing}
       >
-        {({ remainingTime }) => remainingTime + " seconds"}
+        {({ remainingTime }) => remainingTime + " Seconds"}
       </CountdownCircleTimer>
     </div>
   );
