@@ -199,7 +199,7 @@ const QuizPage = (prop) => {
                           }}
                         >
                           {answer}
-                        </button>
+                        </button>///
                       </ListItem>
                     </span>
                   );
